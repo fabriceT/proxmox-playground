@@ -11,10 +11,6 @@ terramate {
 }
 
 import {
-  source = "./imports/lxc_instance.tm.hcl"
-}
-
-import {
   source = "./imports/providers.tm.hcl"
 }
 
