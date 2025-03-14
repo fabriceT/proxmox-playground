@@ -1,4 +1,4 @@
-**/.terraform*
+**/.terraform/
 **/terraform.tfstate*
 **/credentials.*
 **/_generated_*.tf
