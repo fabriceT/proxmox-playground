@@ -1,4 +1,6 @@
 **/.terraform/
 **/terraform.tfstate*
 **/credentials.*
-**/_generated_*.tf
+**/.terragrunt-cache/
+
+root.hcl
