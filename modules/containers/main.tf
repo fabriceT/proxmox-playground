@@ -58,4 +58,10 @@ resource "proxmox_virtual_environment_container" "test" {
     template_file_id = each.value.template_file_id
     type             = "ubuntu" # TODO
   }
+
+  lifecycle {
+    ignore_changes = [
+      started,
+    ]
+  }
 }
