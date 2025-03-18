@@ -3,20 +3,9 @@ locals {
 }
 
 generate "provider" {
-  path      = "provider.tf"
+  path      = "secrets.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
-terraform {
-  required_version = ">= 1.4.6"
-
-  required_providers {
-    proxmox = {
-      source  = "bpg/proxmox"
-      version = ">= 0.73.0"
-    }
-  }
-}
-
 provider "proxmox" {
   endpoint   = "${local.proxmox.api_endpoint}"
   api_token       = "${local.proxmox.api_token}"

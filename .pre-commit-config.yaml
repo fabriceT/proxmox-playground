@@ -14,6 +14,7 @@ repos:
     rev: v1.97.4
     hooks:
       - id: terraform_fmt
+      - id: terraform_tflint
       # - id: terraform_docs
       - id: terragrunt_fmt
       # - id: terragrunt_validate
