@@ -10,7 +10,11 @@ dependency "templates" {
   config_path = "${get_repo_root()}/templates"
 
   mock_outputs = {
-    id = "pve:local/mock-template-output"
+    templates = {
+      ubuntu2204 = {
+        id = "pve:local/mock-template-output"
+      }
+    }
   }
 }
 
