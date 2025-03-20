@@ -7,7 +7,7 @@ include "root" {
 }
 
 dependency "templates" {
-  config_path = "${get_repo_root()}/templates"
+  config_path = "${get_repo_root()}/stacks/templates"
 
   mock_outputs = {
     templates = {
