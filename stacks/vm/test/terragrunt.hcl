@@ -9,6 +9,10 @@ include "root" {
 inputs = {
   name        = "test.aud.in"
   description = "some module test"
+  user_admin = {
+    name     = "ubuntu"
+    password = "Azerty123"
+  }
   disks = {
     virtio0 = {
       size = 10

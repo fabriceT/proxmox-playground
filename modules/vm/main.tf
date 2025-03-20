@@ -45,11 +45,14 @@ resource "proxmox_virtual_environment_vm" "wm_ubuntu" {
       }
     }
 
-    #     user_account {
-    #       keys     = <key>
-    #       password = random_password.ubuntu_vm_password.result
-    #       username = "ubuntu"
-    #     }
+    dynamic "user_account" {
+      for_each = var.user_admin != null ? [var.user_admin] : []
+      content {
+        username = user_account.value.name
+        password = user_account.value.password
+        keys     = user_account.value.ssh_key
+      }
+    }
 
     #     user_data_file_id = proxmox_virtual_environment_file.cloud_config.id
   }

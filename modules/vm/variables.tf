@@ -78,3 +78,12 @@ variable "cdrom_file_id" {
   type    = string
   default = null
 }
+
+variable "user_admin" {
+  type = object({
+    name     = string
+    ssh_key  = optional(list(string))
+    password = optional(string)
+  })
+  default = null
+}
