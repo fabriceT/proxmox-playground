@@ -50,17 +50,16 @@ variable "vga" {
   }
 }
 
-variable "disk" {
-  // TODO: utiliser 'set' pour avoir plusieurs disques
-  type = object({
+variable "disks" {
+  type = map(object({
     size        = number
-    file_format = string
-    interface   = string
-  })
+    file_format = optional(string)
+  }))
   default = {
-    size        = 10
-    file_format = "raw"
-    interface   = "virtio0"
+    virtio0 = {
+      size        = 10
+      file_format = "raw"
+    }
   }
 }
 

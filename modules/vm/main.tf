@@ -15,11 +15,14 @@ resource "proxmox_virtual_environment_vm" "wm_ubuntu" {
     memory = var.vga.memory
   }
 
-  disk {
-    #datastore_id = "local-lvm"
-    file_format = var.disk.file_format
-    interface   = var.disk.interface
-    size        = var.disk.size
+  dynamic "disk" {
+    for_each = var.disks
+    content {
+      #datastore_id = "local-lvm"
+      interface   = disk.key
+      file_format = coalesce(disk.value.file_format, "raw")
+      size        = disk.value.size
+    }
   }
 
   network_device {

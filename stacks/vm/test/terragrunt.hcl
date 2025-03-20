@@ -9,4 +9,12 @@ include "root" {
 inputs = {
   name        = "test.aud.in"
   description = "some module test"
+  disks = {
+    virtio0 = {
+      size = 10
+    }
+    virtio1 = {
+      size = 5
+    }
+  }
 }
